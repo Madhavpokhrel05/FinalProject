@@ -40,11 +40,9 @@ class Post extends Component {
                     <p className="dark-grey-text mb-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                         doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
                         veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                        </p><p className="dark-grey-text mb-4"> Disrupt vero ea id fugiat, lo-fi lomo post-ironic irony kitsch Banksy.
-                            Tumblr kale stumptown beer elit seitan tote bag Banksy, elit small
-                            batch fregan sed.
+                        </p><p className="dark-grey-text mb-4"> Lorem
                         </p>
-             
+
 
 
                     <div class="edit-option d-flex justify-content-between">
@@ -65,8 +63,8 @@ class Post extends Component {
 
 </section>
 
-              
-                      
+
+
         );
     }
 }

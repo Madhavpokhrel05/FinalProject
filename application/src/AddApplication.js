@@ -44,20 +44,20 @@ handleEditorChange(e) {
               <TinyMCE onChange={this.handleEditorChange} />
             </div>
             {/* Second card */}
-<div className="card">
-<form className="md-form">
-  <div className="file-field big-2">
-    <div className="btn btn-rounded blue-gradient btn-lg float-left">
-      <span>Choose file</span>
-      <input type="file" />
-    </div>
-    <div className="file-path-wrapper">
-      <input className="file-path validate" type="text" placeholder="Upload your file" />
-    </div>
-  </div>
-</form>
+					<div className="card">
+					<form className="md-form">
+					  <div className="file-field big-2">
+					    <div className="btn btn-rounded blue-gradient btn-lg float-left">
+					      <span>Choose file</span>
+					      <input type="file" />
+					    </div>
+					    <div className="file-path-wrapper">
+					      <input className="file-path validate" type="text" placeholder="Upload your file" />
+					    </div>
+					  </div>
+					</form>
 
-</div>
+					</div>
 
           </div>
           {/* Grid column */}

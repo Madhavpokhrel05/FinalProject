@@ -3,9 +3,7 @@ import React, {Component} from 'react';
 class Post extends Component {
     render() {
         return (
-                  
 
-                         
                             <section className="section extra-margins pb-3 text-center text-lg-left">
 
                                 {/*Grid row*/}
@@ -42,8 +40,8 @@ class Post extends Component {
                                                     </p>
                                                 <p></p>
                                                 <p className="font-small font-weight-bold blue-grey-text mb-1">
-                                                    <i className="far fa-clock-o"></i> 27/08/2017</p>
-                                                <p className="font-small dark-grey-text mb-0 font-weight-bold">Anna Smith</p>
+                                                    <i className="far fa-clock-o"></i> April 05, 2020</p>
+                                                <p className="font-small dark-grey-text mb-0 font-weight-bold">SAMINTHA SMITH</p>
                                                 <p className="text-right mb-0 text-uppercase dark-grey-text font-weight-bold">
                                                     <a>read more
                                                         <i className="fas fa-chevron-right" aria-hidden="true"></i>
@@ -64,8 +62,8 @@ class Post extends Component {
 
                             </section>
 
-                  
-                      
+
+
         );
     }
 }

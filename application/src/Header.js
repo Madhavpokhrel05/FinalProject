@@ -55,9 +55,7 @@ export default class Header extends React.Component {
         {/* /.Navbar */}
 
     </header>
-
-
-
+		
 		);
 	}
 }

@@ -55,7 +55,7 @@ return (
                     <i className="fas fa-bars"></i></a>
             </div>
 
-  
+
             <div className="d-flex change-mode ml-auto">
                 {/*Navbar links */}
                 <ul className="nav navbar-nav nav-flex-icons ml-auto">
@@ -78,7 +78,6 @@ return (
 
             </Switch>
 
-
     </main>
     <footer className="page-footer pt-0 mt-5 rgba-stylish-light">
     <div className="footer-copyright text-center py-3">
@@ -87,8 +86,6 @@ return (
         </div>
     </div>
     </footer>
-
-
 
     </Router>
 </div>

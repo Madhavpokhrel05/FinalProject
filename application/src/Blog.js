@@ -19,7 +19,6 @@ class Blog extends Component {
 <Header/>
 
 
-
     {/*Main layout*/}
     <main class="p-0">
 <div className="container-fluid">
@@ -610,7 +609,7 @@ class Blog extends Component {
 
                         {/*Grid column*/}
                         <div className="col-lg-4 col-md-6">
-                            <h6 className="font-weight-bold mt-5 mb-3">YOUR POST</h6>
+                            <h6 className="font-weight-bold mt-5 mb-3">YOUR APPLICATION</h6>
                             <hr className="mb-5" />
 
                             {/*Grid row*/}
@@ -636,7 +635,7 @@ class Blog extends Component {
                                     {/*Post data*/}
                                     <div className="">
                                         <p className="mb-1">
-                                            <a href="#!" className="text-hover font-weight-bold">OLD POSTS</a>
+                                            <a href="#!" className="text-hover font-weight-bold">OLD APPLICATION</a>
                                         </p>
                                         <p className="font-small grey-text">
                                             <em>April 7, 2020</em>
@@ -672,7 +671,7 @@ class Blog extends Component {
                                     {/*Post data*/}
                                     <div className="">
                                         <p className="mb-1">
-                                            <a href="#!" className="text-hover font-weight-bold">A MONGTH EARLY</a>
+                                            <a href="#!" className="text-hover font-weight-bold">MONTHLY SALARY</a>
                                         </p>
                                         <p className="font-small grey-text">
                                             <em>April 7, 2020</em>
