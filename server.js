@@ -19,8 +19,3 @@ app.use(applicationRouter)
 app.listen(PORT, ()=>{
     console.log('Server started on port on : ', PORT)
 })
-
-
-
-
-
