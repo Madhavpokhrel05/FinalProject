@@ -31,12 +31,12 @@ class Contact extends React.Component {
                                         <Input onChange={()=>{}} className="form-control mt-3" placeholder="Email"   />
                                     </div>
                                 </div>
-                                <textarea 
-                                    rows="5" 
+                                <textarea
+                                    rows="5"
                                     onChange={()=>{}}
-                                    className="form-control mt-3" 
-                                    placeholder="Description" 
-                                    name="description"  
+                                    className="form-control mt-3"
+                                    placeholder="Description"
+                                    name="description"
                                 />
                                 <div className="row">
                                     <div className="col-md-6">

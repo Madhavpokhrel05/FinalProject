@@ -40,24 +40,34 @@ class Login extends React.Component {
     }
     render(){
         return(
-            <div className="col-md-4 offset-md-4">
+          <div className="center-position">
+           <div className="col-md-4 offset-md-4 mt-5 pt-5">
                 <Card  className="mt-5">
                     <CardActionArea>
                         <CardContent>
-                            <form >
-                                <h3>Login </h3>
-                                <b className="text-warning"> {this.state.errorLog?this.state.errorLog:''} </b>
-                                <Input onChange={this.changeHandler} className="form-control mt-3" placeholder="Email" name="email" value={this.state.email} />
-                                <Input onChange={this.changeHandler} className="form-control mt-3" placeholder="Password" type="password" name="password" value={this.state.password} />
+                        <form className="custom-inputform">
+                            <h3>Login</h3>
+                            <b className="text-warning"> {this.state.errorLog?this.state.errorLog:''} </b>
+                            <Input onChange={this.changeHandler} className="form-control mt-3" placeholder="Email" name="email" value={this.state.email} />
 
-                            </form>
+                                       <Input onChange={this.changeHandler} className="form-control mt-3" placeholder="Password" type="password" name="password" value={this.state.password} />
+
+
+
+
+
+                        </form>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary" onClick={this.submitHandler}>Login</Button>
-                        <Link className="ml-3" to ='/signup'>Sign Up</Link>
+                        <div className="login-button pb-5">
+
+                        <button className="btn btn-primary btn-rounded text-white"  onClick={this.submitHandler}>Login</button>
+                        <Link className="ml-3 btn btn-primary btn-rounded text-white" to ='/signup'>Sign Up</Link>
+                        </div>
                     </CardActions>
                 </Card>
+            </div>
             </div>
         )
     }

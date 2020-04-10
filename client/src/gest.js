@@ -10,7 +10,7 @@ import Login from './component/Login'
 import Signup from './component/Signup'
 import Contact from './component/Contact'
 import About from './component/About';
-export default class gest extends PureComponent {
+export default className gest extends PureComponent {
     render() {
         return (
             <BrowserRouter>

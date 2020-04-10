@@ -43,7 +43,7 @@ class Home extends React.Component {
     }
     render(){
         return(
-            <div className="col-md-8 offset-md-2 mb-5 ">
+            <div className="col-md-6 mx-auto mt-5 mb-5 ">
                 {this.state.application.length<1?
                 <Card className="mt-5">
                     <CardContent>
@@ -54,27 +54,32 @@ class Home extends React.Component {
                 {
                     this.state.application.map(single=>{
                         return(
+                          <div className="card mb-5 pb-3">
+                              <div className="view overlay">
+                                  <img src={require(`../uploads/${single.img}`)} className="card-img-top" />
+                                  <a href="#!">
+                                      <div className="mask rgba-white-slight"></div>
+                                  </a>
+                              </div>
 
-                            <Card  className="mt-5">
-                            <CardActionArea>
-                                <CardContent>
-                                <Typography gutterBottom variant="h3" component="h2">
-                                    {single.title}
-                                </Typography>
-                                <div>
-                                    <img style={{maxWidth:'70%'}} src={require(`../uploads/${single.img}`)}/>
-                                </div>
-                                <Typography variant="body2" color="textSecondary" className="mt-4" component="p">
-                                    <h5>Description : </h5>
-                                    <p style={{fontSize:'18px'}}> {single.description} </p>
-                                </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                            <CardActions>
-                                <Button size="small" color="primary"><Link to={`/edit?id=${single._id}&id=${single._id}`}><span>Edit</span></Link></Button>
-                                <Button size="small" color="primary" onClick={this.delete.bind(this, single._id)}><span>Delete</span></Button>
-                            </CardActions>
-                        </Card>
+                              <div className="card-body mx-4">
+
+                                  <h4 className="card-title">
+                                      <strong> {single.title}</strong>
+                                  </h4>
+                                    <hr></hr>
+
+                                  <p className="dark-grey-text mb-3">{single.description}</p>
+
+                                  <div class="d-flex justify-content-between py       -4">
+                                      <button className="btn btn-primary text-white">
+                                          <Link className="text-white" to={`/edit?id=${single._id}&id=${single._id}`}> <span>Edit</span></Link></button>
+                                      <button onClick={this.delete.bind(this, single._id)} className="btn btn-danger text-white"><span>Delete</span></button>
+                                  </div>
+
+
+                              </div>
+                          </div>
                         )
                     })
                 }

@@ -102,15 +102,15 @@ componentDidMount=()=>{
                                             />
                                         </div>
                                         {/* <div className="col-md-6">
-                                            <div class="custom-file">
+                                            <div className="custom-file">
                                                 <input
                                                     name="file"
                                                     type="file"
                                                     onChange={this.onFileChoose}
-                                                    class="custom-file-input"
+                                                    className="custom-file-input"
                                                     id="customFile"
                                                 />
-                                                <label class="custom-file-label" for="customFile"> {this.state.label} </label>
+                                                <label className="custom-file-label" for="customFile"> {this.state.label} </label>
                                             </div>
                                         </div> */}
                                     </div>

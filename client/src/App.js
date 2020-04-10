@@ -11,7 +11,7 @@ import Signup from './component/Signup'
 import Contact from './component/Contact'
 import About from './component/About';
 class App extends React.Component {
- 
+
   render(){
     return (
       <BrowserRouter>
