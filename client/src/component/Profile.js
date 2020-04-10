@@ -11,7 +11,7 @@ class Profile extends React.Component {
         user:{}
     }
     componentDidMount(){
-        
+
         if(!window.localStorage.getItem('application_data')){
             window.location.href='/login'
         }
@@ -35,7 +35,7 @@ class Profile extends React.Component {
                             <p>Contact Number: {this.state.user.contactnumber} </p>
                         </Typography>
                         <Typography variant="body2" color="textSecondary" className="mt-4" component="p">
-                            <h6 style={{textDecoration:'underline'}}>About yours:</h6>
+                            <h6 style={{textDecoration:'underline'}}>Your Informatin:</h6>
                             <p style={{fontSize:'18px'}}> {this.state.user.description} </p>
                         </Typography>
                         </CardContent>

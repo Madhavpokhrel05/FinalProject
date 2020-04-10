@@ -14,11 +14,12 @@ class Edit extends React.Component {
         title:'',
         description:'',
         application:'',
-        id:''
+        id:'',
+        success:''
     }
-    
+
   componentDidMount(){
-      
+
     if(!window.localStorage.getItem('application_data')){
         window.location.href='/login'
     }
@@ -33,7 +34,7 @@ class Edit extends React.Component {
 //     })
 //     console.log(this.state)
 //   }
-  
+
   changeHandler=(event)=>{
     event.preventDefault()
     this.setState({
@@ -49,7 +50,7 @@ class Edit extends React.Component {
     let { title, description,id}  = this.state
     axios.post('/edit',{title,description,id})
     .then(res=>{
-        console.log(res.data)
+        this.setState({success:res.data.massage})
     })
     .catch(err=>{
         console.log(err)
@@ -61,10 +62,10 @@ componentDidMount=()=>{
     this.setState({id:id})
     axios.get('/single/'+id)
     .then(res=>{
-        console.log(res.data[0])
+        console.log(res.data)
         this.setState({
-            title:res.data[0].title,
-            description:res.data[0].description,
+            title:res.data.title,
+            description:res.data.description,
         })
     })
     .catch(err=>{
@@ -72,10 +73,18 @@ componentDidMount=()=>{
     })
 
 }
-  
+
     render(){
         return(
-            <div className="col-md-6 offset-md-3">
+            <div className="col-md-6 offset-md-3 text-center">
+                {this.state.success?
+                <Card className="mt-5">
+                    <CardContent>
+                        <h3 className="text-center"> {this.state.success} </h3>
+                        <Link  to='/home'>Go To Home</Link>
+                    </CardContent>
+                </Card>:
+
                 <Card  className="mt-5">
                     <CardActionArea>
                         <CardContent>
@@ -84,11 +93,11 @@ componentDidMount=()=>{
                                     <h3 >Edit Application</h3>
                                     <div className="row mb-3">
                                         <div className="col-md-12">
-                                            <Input 
-                                                name="title" 
-                                                value={this.state.title} 
-                                                onChange={this.changeHandler} 
-                                                placeholder="Enter Title" 
+                                            <Input
+                                                name="title"
+                                                value={this.state.title}
+                                                onChange={this.changeHandler}
+                                                placeholder="Enter Title"
                                                 className="form-control"
                                             />
                                         </div>
@@ -96,20 +105,20 @@ componentDidMount=()=>{
                                             <div class="custom-file">
                                                 <input
                                                     name="file"
-                                                    type="file" 
-                                                    onChange={this.onFileChoose} 
-                                                    class="custom-file-input" 
+                                                    type="file"
+                                                    onChange={this.onFileChoose}
+                                                    class="custom-file-input"
                                                     id="customFile"
                                                 />
                                                 <label class="custom-file-label" for="customFile"> {this.state.label} </label>
                                             </div>
                                         </div> */}
                                     </div>
-                                    <textarea 
-                                        placeholder="Enter Description " 
-                                        name="description" 
-                                        value={this.state.description} 
-                                        className="form-control" 
+                                    <textarea
+                                        placeholder="Enter Description "
+                                        name="description"
+                                        value={this.state.description}
+                                        className="form-control"
                                         onChange={this.changeHandler}
                                         rows="5"
                                     />
@@ -118,10 +127,10 @@ componentDidMount=()=>{
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary" onClick={this.submitHandler}>Submit</Button>
+                        <Button size="small" color="primary" onClick={this.submitHandler}>Update</Button>
                         <Button size="small" color="primary" onClick={this.submitHandler}><Link to='/home'>Cancel</Link></Button>
                     </CardActions>
-                </Card>
+                </Card>}
             </div>
         )
     }

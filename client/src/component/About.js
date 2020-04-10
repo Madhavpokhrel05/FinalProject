@@ -14,19 +14,20 @@ export default class About extends PureComponent {
     render() {
         return (
             <div className="col-md-6 offset-md-3">
-                
+
                 <Card  className="mt-5">
                             <CardActionArea>
                                 <CardContent>
                                 <Typography gutterBottom variant="h3" component="h2">
-                                    About Us
+                                    About This Application
                                 </Typography>
                                 <div>
-                                If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The Responsible Disclosure Program details the procedure for disclosing security issues.
+                                  This application allow user to create an account and store the numbers of job Application.
                                 </div>
                                 <Typography variant="body2" color="textSecondary" className="mt-4" component="p">
                                     <h5>Description : </h5>
-                                    If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The Responsible Disclosure Program details the procedure for disclosing security issues.
+                                      In order to use this application, User 1st need to create an application.
+                                      Then, they are able to add the any number of applicaiton into their account.
 
 
                                 </Typography>

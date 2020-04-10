@@ -19,8 +19,8 @@ class Sighup extends React.Component {
         massage:'',
         errorLog:''
     }
-    
-  
+
+
   changeHandler=(event)=>{
     event.preventDefault()
     this.setState({
@@ -57,7 +57,7 @@ class Sighup extends React.Component {
                     <CardActionArea>
                         <CardContent>
                             <form >
-                                <h3>Sign Up Here</h3>
+                                <h3>Sign Up</h3>
                                 <b className="text-warning"> {this.state.errorLog?this.state.errorLog:''} </b>
                                 <p className="text-warning"> {this.state.massage} </p>
                                 <div className="row">
@@ -68,13 +68,13 @@ class Sighup extends React.Component {
                                         <Input onChange={this.changeHandler} className="form-control mt-3" placeholder="Email" name="email" value={this.state.email} />
                                     </div>
                                 </div>
-                                <textarea 
-                                    rows="5" 
+                                <textarea
+                                    rows="5"
                                     onChange={this.changeHandler}
-                                    className="form-control mt-3" 
-                                    placeholder="Description" 
-                                    name="description" 
-                                    value={this.state.description} 
+                                    className="form-control mt-3"
+                                    placeholder="Description"
+                                    name="description"
+                                    value={this.state.description}
                                 />
                                 <div className="row">
                                     <div className="col-md-6">

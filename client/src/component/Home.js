@@ -44,6 +44,13 @@ class Home extends React.Component {
     render(){
         return(
             <div className="col-md-8 offset-md-2 mb-5 ">
+                {this.state.application.length<1?
+                <Card className="mt-5">
+                    <CardContent>
+                        <h2 className="text-center">No application added yet !</h2>
+                    </CardContent>
+                </Card>:""
+                }
                 {
                     this.state.application.map(single=>{
                         return(
@@ -64,8 +71,8 @@ class Home extends React.Component {
                                 </CardContent>
                             </CardActionArea>
                             <CardActions>
-                                <Button size="small" color="primary"><Link to={`/edit?id=${single.id}&id=${single.id}`}><span>Edit</span></Link></Button>
-                                <Button size="small" color="primary" onClick={this.delete.bind(this, single.id)}><span>Delete</span></Button>
+                                <Button size="small" color="primary"><Link to={`/edit?id=${single._id}&id=${single._id}`}><span>Edit</span></Link></Button>
+                                <Button size="small" color="primary" onClick={this.delete.bind(this, single._id)}><span>Delete</span></Button>
                             </CardActions>
                         </Card>
                         )

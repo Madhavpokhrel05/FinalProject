@@ -1,83 +1,91 @@
-const {Pool , Client} = require('pg')
-const connectionString = 'postgresql://appUser:alamin@localhost:5432/application'
-
-const client= new Client({
-    connectionString:connectionString
-})
-client.connect()
+const applicationModel = require('../model/applicationModel')
 
 
-
-// get data 
+// get data
 const readApplication=(req,res)=>{
-    client.query('SELECT * from application_data' , (err, result)=>{
-        if(err){
-            console.log(err)
-            return res.status(500).json({massage:"Server error occurd in DB"})
-        }
-        res.status(200).json(result.rows)
+    applicationModel.find()
+    .then(applications=>{
+        res.status(200).json(applications)
+    })
+    .catch(err=>{
+        return res.status(500).json({massage:"Server error occurd in DB"})
     })
 }
 // edit data
 const createApplication=(req,res)=>{
-    
+
     // profilePicture:req.file.filename,
     // picturePath:req.file.path
     console.log('working')
     if(!req.body.title || !req.file || !req.body.description|| !req.file){
-        return res.status(400).json({massage:"Pls fillup all required data !"})
+        return res.status(400).json({massage:"Please fillup all required information !"})
     }
     const {title , description} = req.body
     const img= req.file.filename
     console.log(title, img, description)
-    client.query("INSERT INTO application_data (title,img,description) VALUES($1,$2,$3)" ,[title,img,description ],(err,result)=>{
-        if(err){
-            console.log(err)
-            return res.status(500).json({massage:"Server err occurd"})
-        }
-        res.json({massage:'Applicatin added successfull !'})
+    new applicationModel({
+        title:title,
+        img:img,
+        description:description
+    }).save()
+    .then(application=>{
+        console.log(application)
+        res.json({massage:'Application added successfull!'})
+    })
+    .catch(err=>{
+        return res.status(500).json({massage:"Server err occurd"})
     })
 }
 // delete data
 const deleteApplication=(req,res)=>{
     const id = req.params.id
-    client.query('DELETE FROM application_data WHERE id=$1',[id],(err, result)=>{
-        if(err){
-            console.log(err)
-            return res.status(500).json({massage:"Server err occurd"})
-        }
+    applicationModel.findByIdAndDelete(id)
+    .then(deleted=>{
+        console.log(deleted)
         return res.status(200).json({massage:"Application deleted successfull !"})
     })
-
+    .catch(err=>{
+        console.log(err)
+        return res.status(500).json({massage:"Server err occurd"})
+    })
 }
 
 // update data
 const editApplication=(req,res)=>{
+    console.log(req.body)
     const{title,description,id}=req.body
     if(!title|| !description || !id){
-        return res.status(500).json({massage:"Pls enter required information "})
+        return res.status(500).json({massage:"Please enter required information "})
     }
-    client.query('UPDATE application_data SET title=$1 ,description=$2 WHERE id=$3',[title,description,id],(err,result)=>{
-        if(err){
+    applicationModel.findOne({_id:id})
+    .then(application=>{
+        application.title=title
+        application.description=description
+        application.save()
+        .then(updated=>{
+            console.log(updated)
+            return res.status(200).json({massage:"Application updated successfull !"})
+        })
+        .catch(err=>{
             console.log(err)
-            return res.status(500).json({massage:"Server error occurd"})
-        }
-        console.log(result)
-        return res.status(200).json({massage:"Application edited successfull !"})
+            return res.status(500).json({massage:"Server err occurd"})
+        })
+
     })
 }
 
 const getSingle=(req, res)=>{
     const id= req.params.id
-    client.query('SELECT * FROM application_data WHERE id=$1',[id],(err, result)=>{
-        if(err){
-            console.log(err)
-            return res.status(500).json({massage:"Server error occurd"})
-        }
-        if(result.rows.length<1){
+    applicationModel.findOne({_id:id})
+    .then(application=>{
+        if(!application){
             return res.status(200).json({massage:"Application not exist "})
         }
-        return res.status(200).json(result.rows)
+        return res.status(200).json(application)
+    })
+    .catch(err=>{
+        console.log(err)
+        return res.status(500).json({massage:"server error occurd"})
     })
 }
 module.exports={
