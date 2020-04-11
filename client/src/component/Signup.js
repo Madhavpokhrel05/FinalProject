@@ -43,26 +43,21 @@ class Sighup extends React.Component {
     }
     render(){
         return(
-            <div className="col-md-6 mx-auto">
+            <div className="col-md-6 offset-md-1">
                 {this.state.massage?
                 <Card className="mt-5">
                     <CardActionArea>
                         <CardContent>
                             <h1 className="text-center"> {this.state.massage} </h1>
-                            <Link className="text-center" to='/login'>Login</Link>
+                            <Link className="text-center" to='/login'>Go to login</Link>
                         </CardContent>
                     </CardActionArea>
                 </Card>:
-
-<div className="max-auto w-100 pt-5">
-                <div className="card mt-5">
-                <h5 class="card-header MuiAppBar-colorPrimary white-text text-center py-4">
-  <h3>Sign Up</h3>
- </h5>
-                <div className="card-body px-lg-5 pt-0">
-
+                <Card  className="mt-5">
+                    <CardActionArea>
+                        <CardContent>
                             <form >
-
+                                <h3>Sign Up</h3>
                                 <b className="text-warning"> {this.state.errorLog?this.state.errorLog:''} </b>
                                 <p className="text-warning"> {this.state.massage} </p>
                                 <div className="row">
@@ -90,16 +85,14 @@ class Sighup extends React.Component {
                                     </div>
                                 </div>
                             </form>
-
-                    <CardActions className="py-4">
-                        <button className="btn btn-primary btn-rounded text-white" onClick={this.submitHandler}>Submit</button>
-                        <Link className="btn btn-primary btn-rounded text-white" to ='/login'>Login</Link>
+                        </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                        <Button size="small" color="primary" onClick={this.submitHandler}>Submit</Button>
+                        <Link to ='/login'>Go to Login</Link>
 
                     </CardActions>
-                </div>
-                </div>
-</div>
-              }
+                </Card>}
             </div>
         )
     }

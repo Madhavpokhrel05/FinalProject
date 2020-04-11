@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function PrimarySearchAppBar() {
-  const classNamees = useStyles();
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [application_data, setapplication_data] = useState(false)
@@ -164,13 +164,13 @@ export default function PrimarySearchAppBar() {
     <div>
       {application_data?
       
-        <div className={classNamees.grow}>
+        <div className={classes.grow}>
           <AppBar position="static">
             <div className="col-md-8 offset-md-2">
               <Toolbar>
               <IconButton
                 edge="start"
-                className={classNamees.menuButton}
+                className={classes.menuButton}
                 color="inherit"
                 aria-label="open drawer"
               >
@@ -190,11 +190,11 @@ export default function PrimarySearchAppBar() {
                         )}
                     </PopupState>
               </IconButton>
-              <Typography className={classNamees.title} variant="h6" noWrap>
+              <Typography className={classes.title} variant="h6" noWrap>
                 Application Manager
               </Typography>
-              <div className={classNamees.grow} />
-              <div className={classNamees.sectionDesktop}>
+              <div className={classes.grow} />
+              <div className={classes.sectionDesktop}>
                 <IconButton
                   edge="end"
                   aria-label="account of current user"
@@ -206,7 +206,7 @@ export default function PrimarySearchAppBar() {
                   <AccountCircle />
                 </IconButton>
               </div>
-              <div className={classNamees.sectionMobile}>
+              <div className={classes.sectionMobile}>
                 <IconButton
                   aria-label="show more"
                   aria-controls={mobileMenuId}
@@ -224,13 +224,13 @@ export default function PrimarySearchAppBar() {
           {renderMenu}
         </div>:
         
-        <div className={classNamees.grow}>
+        <div className={classes.grow}>
           <AppBar position="static">
             <div className="col-md-8 offset-md-2">
               <Toolbar>
               <IconButton
                 edge="start"
-                className={classNamees.menuButton}
+                className={classes.menuButton}
                 color="inherit"
                 aria-label="open drawer"
               >
@@ -248,8 +248,8 @@ export default function PrimarySearchAppBar() {
                         )}
                     </PopupState>
               </IconButton>
-              <Typography className={classNamees.title} variant="h6" noWrap>Login / Sign Up </Typography>
-              <div className={classNamees.grow} />
+              <Typography className={classes.title} variant="h6" noWrap>Login / Sign Up </Typography>
+              <div className={classes.grow} />
             </Toolbar>
             </div>
           </AppBar>

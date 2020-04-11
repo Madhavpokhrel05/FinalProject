@@ -16,8 +16,8 @@ class Add extends React.Component {
         label:'Choose a Image',
         success:''
     }
-
-
+    
+  
   onFileChoose=(event)=>{
     console.log(event.target.files[0].name)
     console.log(event.target.files[0].name)
@@ -28,7 +28,7 @@ class Add extends React.Component {
     })
     console.log(this.state)
   }
-
+  
   changeHandler=(event)=>{
     event.preventDefault()
     this.setState({
@@ -49,12 +49,12 @@ class Add extends React.Component {
    })
 }
 componentDidMount(){
-
+    
     if(!window.localStorage.getItem('application_data')){
         window.location.href='/login'
     }
 }
-
+  
     render(){
         return(
             <div className="col-md-6 offset-md-3 p-3">
@@ -74,32 +74,32 @@ componentDidMount(){
                                     <h3 >Add Application</h3>
                                     <div className="row mb-3">
                                         <div className="col-md-6">
-                                            <Input
-                                                name="title"
-                                                value={this.state.title}
-                                                onChange={this.changeHandler}
-                                                placeholder="Enter Title"
+                                            <Input 
+                                                name="title" 
+                                                value={this.state.title} 
+                                                onChange={this.changeHandler} 
+                                                placeholder="Enter Title" 
                                                 className="form-control"
                                             />
                                         </div>
                                         <div className="col-md-6">
-                                            <div className="custom-file">
+                                            <div class="custom-file">
                                                 <input
                                                     name="file"
-                                                    type="file"
-                                                    onChange={this.onFileChoose}
-                                                    className="custom-file-input"
+                                                    type="file" 
+                                                    onChange={this.onFileChoose} 
+                                                    class="custom-file-input" 
                                                     id="customFile"
                                                 />
-                                                <label className="custom-file-label" for="customFile"> {this.state.label} </label>
+                                                <label class="custom-file-label" for="customFile"> {this.state.label} </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <textarea
-                                        placeholder="Enter Description "
-                                        name="description"
-                                        value={this.state.descriptoin}
-                                        className="form-control"
+                                    <textarea 
+                                        placeholder="Enter Description " 
+                                        name="description" 
+                                        value={this.state.descriptoin} 
+                                        className="form-control" 
                                         onChange={this.changeHandler}
                                         rows="5"
                                     />
